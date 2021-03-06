@@ -1,0 +1,10 @@
+version: '2'
+services:
+  hello_world:
+    image: ubuntu
+    command: [/bin/echo, 'Hello world']
+  app:
+    build: .
+    command: cp index.html /usr/local/apache2/htdocs
+    depends_on:
+      - hello_world
